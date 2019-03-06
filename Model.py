@@ -5,11 +5,9 @@ from keras.layers import Conv2D, MaxPooling2D
 import os
 import numpy as np
 
-os.chdir('E:\\Work\\Kaggle\\ChexNet\\Arrays')
+labels = pickle.load(open('E:\\Work\\chest-x-ray\\Datas\\labels_dict.p', 'rb'))
 
-labels = pickle.load(open('labels_dict.p', 'rb'))
-
-input_shape=(224,224,1)
+input_shape = (224, 224, 1)
 
 model = Sequential()
 model.add(Conv2D(64, kernel_size=(3, 3), strides=(1, 1), activation='relu', input_shape=input_shape))

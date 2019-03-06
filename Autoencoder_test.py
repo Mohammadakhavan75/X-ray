@@ -4,9 +4,6 @@ from matplotlib import pyplot as plt
 import numpy as np
 import pickle
 
-
-input_img = Input(shape=(28, 28, 1))  # adapt this if using `channels_first` image data format
-
 input_img = Input(shape=(224, 224, 1))
 x = Conv2D(512, (3, 3), activation='relu', padding='same')(input_img)
 x = Conv2D(512, (3, 3), activation='relu', padding='same')(x)
@@ -46,7 +43,7 @@ autoencoder = Model(input_img, decoded)
 autoencoder.compile(optimizer='adadelta', loss='binary_crossentropy')
 
 for j in range(49):
-    with open('E:\\Work\\Kaggle\\ChexNet\\Arrays\\dict' + str(j) + '.p', 'rb') as f:
+    with open('E:\\Work\\chest-x-ray\\Datas\\dict' + str(j) + '.p', 'rb') as f:
         datas = pickle.load(f, encoding='latin1')
 
     keys = datas.keys()
